@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect Heart</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="heart-container">
+    <div class="image-frame">
+      <img src="./20241124_103638933_iOS.jpg" alt="Image 1"> <!-- Thay link ảnh vào đây -->
+    </div>
+    <div class="heart"></div>
+    <div class="image-frame">
+      <img src="./20240530_094846473_iOS.jpg" alt="Image 2"> <!-- Thay link ảnh vào đây -->
+    </div>
+  </div>
+
+  <div class="message">
+    Joyeux anniversaire! 🎉<br>
+    Chúc Hoa sinh nhật thật vui vẻ nhaaa! Chúc Hoa tuổi mới luôn tràn đầy năng lượng tích cực, học đâu nhớ đó, học luật nhớ luật, học toán tin thì nhớ tui, thi môn nào cũng A+ nhé. Mong mọi điều tốt đẹp nhất sẽ đến với Hoa, luôn rạng rỡ và hạnh phúc như chính cái tên của mình nhé! 🎂✨ ❤️
+  </div>
+<script>
+// Tạo hiệu ứng khi di chuyển chuột
+const heart = document.querySelector('.heart');
+const heartsContainer = document.createElement('div');
+document.body.appendChild(heartsContainer);
+
+// Thêm sự kiện di chuyển chuột
+document.body.addEventListener('mousemove', (e) => {
+  // Di chuyển trái tim chính theo chuột
+  heart.style.transform = `rotate(-45deg) translate(${e.clientX - 100}px, ${e.clientY - 100}px)`;
+
+  // Tạo hiệu ứng trái tim nhỏ
+  createHeartEffect(e.clientX, e.clientY);
+});
+
+function createHeartEffect(x, y) {
+  const heartEffect = document.createElement('div');
+  heartEffect.classList.add('heart-effect');
+  heartEffect.style.left = `${x - 10}px`; // Căn chỉnh vị trí
+  heartEffect.style.top = `${y - 10}px`;
+  heartsContainer.appendChild(heartEffect);
+
+  // Xóa hình trái tim sau khi hiệu ứng hoàn tất
+  setTimeout(() => {
+    heartEffect.remove();
+  }, 1000);
+}
+
+    </script>
+</body>
+</html>
